@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { supabase } from '@/lib/supabase'
+import { toast } from 'sonner'
 
 export default function AddBookmarkForm({ userId, onBookmarkAdded }: { userId: string, onBookmarkAdded: (bookmark: any) => void }) {
   const [title, setTitle] = useState('')
@@ -12,21 +13,28 @@ export default function AddBookmarkForm({ userId, onBookmarkAdded }: { userId: s
     e.preventDefault()
     setLoading(true)
 
-    const { data, error } = await supabase
-      .from('bookmarks')
-      .insert([
-        { title, url, user_id: userId }
-      ])
-      .select()
+    try {
+      const { data, error } = await supabase
+        .from('bookmarks')
+        .insert([
+          { title, url, user_id: userId }
+        ])
+        .select()
 
-    if (error) {
+      if (error) throw error
+      
+      if (data) {
+        onBookmarkAdded(data[0])
+        setTitle('')
+        setUrl('')
+        toast.success('Bookmark added successfully!')
+      }
+    } catch (error: any) {
       console.error('Error adding bookmark:', error)
-    } else if (data) {
-      onBookmarkAdded(data[0])
-      setTitle('')
-      setUrl('')
+      toast.error('Failed to add bookmark. Please try again.')
+    } finally {
+      setLoading(false)
     }
-    setLoading(false)
   }
 
   return (
