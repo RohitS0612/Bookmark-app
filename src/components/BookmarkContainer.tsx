@@ -47,6 +47,7 @@ export default function BookmarkContainer({ userId }: { userId: string }) {
           event: '*',
           schema: 'public',
           table: 'bookmarks',
+          filter: `user_id=eq.${userId}`,
         },
         (payload) => {
           if (payload.eventType === 'INSERT') {

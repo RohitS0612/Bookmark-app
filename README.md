@@ -56,6 +56,8 @@ The app uses a dedicated **Night Mode** (Dark Theme) featuring:
 - Adaptive radial gradients for a cinematic background.
 - Spring-based animations for a tactile feel.
 
----
-Built with ❤️ by [Your Name/Antigravity]
-# Bookmark-app
+## 🧠 Problems We Faced & How We Solved Them
+
+### 1. Real-time Synchronization (Local vs Production)
+- **Problem**: Real-time updates worked perfectly in localhost but failed to show in production (Vercel) across different tabs.
+- **Solution**: We discovered that production environments require stricter RLS (Row Level Security) policies and specific event filtering. We added a missing `UPDATE` policy and implemented **user-specific filters** in the frontend subscription code to ensure reliable event delivery.
