@@ -119,15 +119,15 @@ export default function BookmarkContainer({ userId }: { userId: string }) {
           </div>
           
           <div className="flex flex-col sm:flex-row items-center gap-4">
-            <div className="relative w-full sm:w-72 group">
+            <div className="relative w-full sm:w-80 group">
               <input
                 type="text"
                 placeholder="Search by title..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-11 pr-4 py-3.5 bg-white/5 border border-white/10 rounded-2xl focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 focus:bg-white/[0.08] outline-none transition-all text-sm text-white placeholder:text-gray-600 font-medium"
+                className="w-full pl-14 pr-6 py-4 bg-white/5 border border-white/10 rounded-2xl focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 focus:bg-white/[0.08] outline-none transition-all text-sm text-white placeholder:text-gray-600 font-medium"
               />
-              <svg className="w-5 h-5 text-gray-600 absolute left-4 top-1/2 -translate-y-1/2 group-focus-within:text-blue-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 text-gray-600 absolute left-5 top-1/2 -translate-y-1/2 group-focus-within:text-blue-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
             </div>
