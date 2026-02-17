@@ -82,7 +82,7 @@ export default function AddBookmarkForm({ userId, onBookmarkAdded }: { userId: s
         disabled={loading}
         className="w-full mt-2 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-black uppercase tracking-[0.2em] text-xs rounded-2xl hover:from-blue-500 hover:to-indigo-500 active:scale-[0.98] focus:ring-4 focus:ring-blue-500/20 disabled:opacity-50 transition-all shadow-xl shadow-blue-500/20 border border-white/10 relative overflow-hidden group h-14"
       >
-        <span className="relative z-10">{loading ? 'Adding to your universe...' : 'Initialize Bookmark'}</span>
+        <span className="relative z-10">{loading ? 'Adding...' : 'Add Bookmark'}</span>
         <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] pointer-events-none" />
       </button>
 
